@@ -1,4 +1,25 @@
-var cards = ['queen', 'queen', 'king', 'king'];
+//Create cards array objects
+var cards = [
+{
+	rank: "queen",
+	suit: "hearts",
+	cardImage: "images/queen-of-hearts.png"
+},
+{
+	rank: "queen",
+	suit: "diamonds",
+	cardImage: "images/queen-of-diamonds.png"
+},
+{
+	rank: "king",
+	suit: "hearts",
+	cardImage: "images/king-of-hearts.png"
+},
+{
+	rank: "king",
+	suit: "diamonds",
+	cardImage: "images/king-of-diamonds.png"
+}];
 
 var cardsInPlay = [];
 
@@ -15,11 +36,14 @@ var checkForMatch = function () {
 //Unit 9 step 2 and 3
 var flipCard = function (cardId) {
 
-//Unit 9 step 4
-console.log("User flipped " + cards[cardId]);
-//Unit 9 step 5
-cardsInPlay.push(cards[cardId]);
+//Update to access values from card array
+console.log("User flipped " + cards[cardId].rank);
 
+cardsInPlay.push(cards[cardId].rank);
+
+//Add see and suit
+console.log(cards[cardId].cardImage)
+console.log(cards[cardId].suit)
 
 if (cardsInPlay.length === 2) {
 
