@@ -33,9 +33,10 @@ var checkForMatch = function () {
 };
 
 
-//Unit 9 step 2 and 3
-var flipCard = function (cardId) {
-
+//remove cardId parameter
+var flipCard = function () {
+//get data-id attribute of card
+cardId = this.getAttribute('data-id');
 //Update to access values from card array
 console.log("User flipped " + cards[cardId].rank);
 
@@ -45,11 +46,30 @@ cardsInPlay.push(cards[cardId].rank);
 console.log(cards[cardId].cardImage)
 console.log(cards[cardId].suit)
 
+this.setAttribute('src', cards[cardId].cardImage);
+
 if (cardsInPlay.length === 2) {
 
 checkForMatch(); //Unit 9 Step 7 part 2
 }	
 };
+//create Board function
+var createBoard = function () { 
+	//loop
+	for (var i = 0; i < cards.length; i++) {
+		//create img element
+		var cardElement = document.createElement('img');
+//add src
+cardElement.setAttribute('src', 'images/back.png');
+//set data id
+cardElement.setAttribute('data-id', i);
+//add event listener
+cardElement.addEventListener('click', flipCard);
+//append card element
+document.getElementById('game-board').appendChild(cardElement);
+	}
+}
+//call create board function
+createBoard();
 
-flipCard(0);
-flipCard(2);
+
